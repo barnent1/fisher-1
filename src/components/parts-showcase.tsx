@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
   Card,
   CardContent,
@@ -7,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface Part {
   id: string;
@@ -76,10 +78,11 @@ export function PartsShowcase() {
         {MOCK_PARTS.map((part) => (
           <Card key={part.id} className="overflow-hidden flex flex-col">
             <div className="aspect-video w-full relative">
-              <img
+              <Image
                 src={part.imageUrl}
                 alt={part.name}
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
               />
             </div>
             <CardHeader>
@@ -92,9 +95,9 @@ export function PartsShowcase() {
               </p>
             </CardContent>
             <CardFooter className="border-t pt-4">
-              <button className="w-full py-2 px-4 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
+              <Button className="w-full">
                 View Details
-              </button>
+              </Button>
             </CardFooter>
           </Card>
         ))}
